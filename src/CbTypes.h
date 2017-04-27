@@ -72,7 +72,8 @@ void cb_mini_tweet_init (CbMiniTweet *t);
 void cb_mini_tweet_parse (CbMiniTweet *t, JsonObject *obj);
 void cb_mini_tweet_parse_entities (CbMiniTweet *t, JsonObject *obj);
 GVariant *cb_mini_tweet_serialize (const CbMiniTweet *t);
-CbMiniTweet *cb_mini_tweet_deserialize (const GVariant *variant);
+void cb_mini_tweet_deserialize (GVariant    *variant,
+                                CbMiniTweet *t);
 
 char *escape_ampersand (const char *in);
 
