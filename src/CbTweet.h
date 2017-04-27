@@ -124,6 +124,7 @@ CbTextEntity **cb_tweet_get_reply_screen_names (CbTweet *tweet,
                                                 guint   *n_replies);
 GVariant   *cb_tweet_serialize (CbTweet *tweet);
 CbTweet    *cb_tweet_deserialize (GVariant *variant);
+CbTweet    *cb_tweet_deserialize_from_bytes (GBytes *bytes);
 
 #endif
 
