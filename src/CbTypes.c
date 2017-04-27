@@ -94,12 +94,25 @@ cb_user_identity_copy (CbUserIdentity *id, CbUserIdentity *id2)
   id2->id = id->id;
 }
 
-void cb_user_identity_parse (CbUserIdentity *id,
-                             JsonObject     *user_obj)
+void
+cb_user_identity_parse (CbUserIdentity *id,
+                        JsonObject     *user_obj)
 {
   id->id = json_object_get_int_member (user_obj, "id");
   id->screen_name = g_strdup (json_object_get_string_member (user_obj, "screen_name"));
   id->user_name = escape_ampersand (json_object_get_string_member (user_obj, "name"));
+}
+
+GVariant *
+cb_user_identity_serialize (const CbUserIdentity *id)
+{
+
+}
+
+CbUserIdentity *
+cb_user_identity_deserialize (const GVariant *variant)
+{
+
 }
 
 
@@ -125,6 +138,17 @@ cb_text_entity_copy (CbTextEntity *e1, CbTextEntity *e2)
   e2->info = e1->info;
 }
 
+GVariant *
+cb_text_entity_serialize (const CbTextEntity *e)
+{
+
+}
+
+CbTextEntity *
+cb_text_entity_deserialize (const GVariant *variant)
+{
+
+}
 
 void
 cb_mini_tweet_free (CbMiniTweet *t)
@@ -530,4 +554,16 @@ cb_mini_tweet_parse_entities (CbMiniTweet *t,
               cb_text_entity_free (&tmp);
             }
     }
+}
+
+GVariant *
+cb_mini_tweet_serialize (const CbMiniTweet *t)
+{
+
+}
+
+CbMiniTweet *
+cb_mini_tweet_deserialize (const GVariant *variant)
+{
+
 }
