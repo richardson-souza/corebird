@@ -487,6 +487,21 @@ cb_tweet_get_reply_screen_names (CbTweet *tweet,
   return mentions;
 }
 
+GVariant *
+cb_tweet_serialize (CbTweet *tweet)
+{
+  return g_variant_new ("(uxv)",
+                        tweet->state,
+                        tweet->id,
+                        cb_mini_tweet_serialize (&tweet->source_tweet));
+}
+
+CbTweet *
+cb_tweet_deserialize (GVariant *variant)
+{
+
+}
+
 CbTweet *
 cb_tweet_new (void)
 {
